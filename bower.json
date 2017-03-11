@@ -10,7 +10,7 @@
     "Restaurant"
   ],
   "authors": [
-    "Jogesh Muppala"
+    "SANGHYUN EOM"
   ],
   "license": "MIT",
   "homepage": "",
@@ -27,3 +27,4 @@
     "angular": "~1.4.7"
   }
 }
+  
