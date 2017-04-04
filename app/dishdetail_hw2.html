@@ -103,7 +103,6 @@
                         <input type="text" class="form-control" id="yourName" name="yourName" placeholder="Enter Your Name" 
                            ng-model ="comment.author"  required>
                           <span ng-show="commentForm.yourName.$error.required && !commentForm.yourName.$pristine" 
-                            ng-model = 
                           class="help-block">Your Name is required.
                           </span>
                         </div>
@@ -160,6 +159,8 @@
 <!-- build:js scripts/main.js -->
     <script src="../bower_components/angular/angular.min.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/controllers.js"></script>
+    <script src="scripts/services.js"></script>
 <!-- endbuild -->
 
 </body>
