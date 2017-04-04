@@ -91,6 +91,7 @@
                             class="help-block">Your Last name is required.</span>
                         </div>
                     </div>
+                    
                     <div class="form-group">
                         <label for="telnum" class="col-sm-2 control-label">Contact Tel.</label>
                         <div class="col-xs-5 col-sm-4 col-md-3">
@@ -111,13 +112,16 @@
                         <div class="col-sm-10">
                             <input type="email" class="form-control" id="emailid" name="emailid" placeholder="Email"
                               ng-model="feedback.email" required>
-                        <span ng-show="feedbackForm.emailid.$invalid && !feedbackForm.emailid.$pristine" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                        <span ng-show="feedbackForm.emailid.$invalid && !feedbackForm.emailid.$pristine"
+                                 class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                       
                         <span ng-show="(feedbackForm.emailid.$invalid ||
                                         feedbackForm.emailid.$error.required) &&
                                         !feedbackForm.emailid.$pristine"
                              class="help-block">Enter a valid email address.</span>
                         </div>
                     </div>
+                    
                     <div class="form-group"  ng-class="{ 'has-error' : invalidChannelSelection }">                       
                         <div class="checkbox col-sm-5 col-sm-offset-2">
                             <label class="checkbox-inline">
