@@ -66,13 +66,13 @@ angular.module('confusionApp')
   }])
   
   
-  .controller('DishDetailController', ['$scope','menuFactory', function($scope, menuFactory) {
+  .controller('DishDetailController', ['$scope','$stateParams','menuFactory', function($scope, $stateParams, menuFactory) {
             $scope.orderText = '';
-            $scope.dish= menuFactory.getDish(3);
+            $scope.dish= menuFactory.getDish(parseInt($stateParams.id,10));
         
   }])
 
-        .controller('DishCommentController', ['$scope', function($scope) {
+  .controller('DishCommentController', ['$scope', function($scope) {
             
             //Step 1: Create a JavaScript object to hold the comment from the form
             $scope.comment = {rating:5, comment:"", author:"", date:""};
@@ -93,4 +93,19 @@ angular.module('confusionApp')
                 console.log($scope.comment);
             };
   }])
+  
+  
+    // implement the IndexController and About Controller here
+    .controller('IndexController',['$scope','menuFactory','corporateFactory',function($scope,menuFactory,corporateFactory) {
+          $scope.firstDish = menuFactory.getDish(0);
+          $scope.promotion = menuFactory.getPromotion(0);
+          $scope.leader = corporateFactory.getLeader(3);
+          
+    }])
+
+    .controller('AboutController',['$scope','corporateFactory', function($scope,corporateFactory) {
+          $scope.leaders = corporateFactory.getLeaders();
+        //  $scope.leader = corporateFactory.getLeader();
+    }])
+    
   ;
