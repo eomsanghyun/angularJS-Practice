@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     stylish = require('jshint-stylish'),
     uglify = require('gulp-uglify'),
+    ngannotate = require('gulp-ng-annotate'),
     usemin = require('gulp-usemin'),
     imagemin = require('gulp-imagemin'),
     rename = require('gulp-rename'),
@@ -12,9 +13,7 @@ var gulp = require('gulp'),
     changed = require('gulp-changed'),
     rev = require('gulp-rev'),
     browserSync = require('browser-sync'),
-    ngannotate = require('gulp-ng-annotate'),
     del = require('del');
-
 
 gulp.task('jshint', function() {
   return gulp.src('app/scripts/**/*.js')
@@ -33,7 +32,7 @@ gulp.task('default', ['clean'], function() {
 });
 
 gulp.task('usemin',['jshint'], function () {
-  return gulp.src('./app/menu.html')
+  return gulp.src('./app/**/*.html')
       .pipe(usemin({
         css:[minifycss(),rev()],
         js: [ngannotate(),uglify(),rev()]
@@ -74,13 +73,14 @@ gulp.task('browser-sync', ['default'], function () {
       'dist/**/*'
    ];
 
-   browserSync.init(files, {
+  browserSync.init(files, {
       server: {
          baseDir: "dist",
-         index: "menu.html"
+         index: "index.html"
       }
    });
         // Watch any files in dist/, reload on change
   gulp.watch(['dist/**']).on('change', browserSync.reload);
-});
+    });
+
 
